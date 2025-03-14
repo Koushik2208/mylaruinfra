@@ -5,7 +5,7 @@ import React, { ReactNode } from "react";
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     <main className="root-container">
-      <div className="max-w-7xl">
+      <div className="w-full">
         <Navbar />
         <div>{children}</div>
         <Footer />
