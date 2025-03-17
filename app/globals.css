@@ -22,8 +22,8 @@
     --muted-foreground: 215 20% 45%;
 
     /* Vibrant accent for highlights */
-    --accent: 45 90% 50%; /* Golden orange */
-    --accent-foreground: 0 0% 100%;
+    --accent: 0% 0% 50%; /* Golden orange */
+    --accent-foreground: 0 0% 50%;
 
     --border: 214 30% 88%;
     --ring: 210 80% 40%;
@@ -116,7 +116,7 @@
     }
 
     button {
-      @apply bg-primary text-primary-foreground font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300;
+      @apply text-primary-foreground font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300;
     }
 
     blockquote {

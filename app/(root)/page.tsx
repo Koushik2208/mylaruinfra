@@ -3,26 +3,23 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   const services = [
-    "Planning & Design",
-    "Residential Construction",
-    "Commercial Construction",
-    "Infrastructure Development",
-    "Builders & Project Management",
+    { name: "Planning & Design", image: "/images/planning.png" },
+    { name: "Residential Construction", image: "/images/residential.png" },
+    { name: "Commercial Construction", image: "/images/commercial.png" },
+    { name: "Infrastructure Development", image: "/images/infrastructure.png" },
+    { name: "Builders & Project Management", image: "/images/builders.png" },
   ];
 
   return (
-    <div className="flex flex-col gap-14 pb-20  bg-gradient-to-br from-gray-100 to-gray-200">
+    <div className="flex flex-col gap-14 pb-20 bg-gradient-to-br from-gray-100 to-gray-200">
       {/* Hero Section */}
       <section className="relative bg-cover bg-no-repeat bg-center bg-image">
-        {/* Overlay Layer */}
         <div className="absolute inset-0 bg-black/30"></div>
-
         <div className="relative min-h-screen flex items-center justify-center text-center px-6 md:px-16">
           <div className="max-w-5xl">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-snug">
               Building Dreams, Crafting Legacies.
             </h1>
-
             <div className="mt-4 text-white text-lg md:text-xl bg-white/20 backdrop-blur-sm px-4 py-2 rounded-md inline-block">
               Creating spaces where innovation meets craftsmanship,
               <br className="hidden md:inline" /> and every structure tells a
@@ -62,20 +59,25 @@ export default function Home() {
           {services.map((item, index) => (
             <li
               key={index}
-              className="bg-white p-6 shadow-lg rounded-xl text-center hover:shadow-xl transition duration-300 ease-in-out"
+              className="relative overflow-hidden bg-white cursor-pointer shadow-lg rounded-xl text-center transition-transform transform-gpu 
+      hover:scale-105 hover:shadow-xl duration-300 ease-in-out"
             >
-              <div className="flex justify-center">
+              <div className="relative w-full h-48">
                 <Image
-                  src={`https://placehold.co/200x150.png?text=${encodeURIComponent(
-                    item
-                  )}`}
-                  alt={item}
-                  width={200}
-                  height={150}
-                  className="rounded-md"
+                  src={item.image}
+                  alt={item.name}
+                  width={500}
+                  height={300}
+                  objectFit="cover"
+                  className="transition-transform duration-500 ease-in-out hover:scale-110"
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
               </div>
-              <p className="mt-4 text-xl font-semibold text-gray-800">{item}</p>
+              {/* Service Name (Always Visible, but Enhances on Hover) */}
+              <p className="absolute bottom-[50%] top-[40%] left-1/2 transform -translate-x-1/2 text-white text-xl font-semibold">
+                {item.name}
+              </p>
             </li>
           ))}
         </ul>
