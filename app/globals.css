@@ -116,7 +116,7 @@
     }
 
     button {
-      @apply text-primary-foreground font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300;
+      @apply text-primary-foreground bg-primary font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300;
     }
 
     blockquote {
