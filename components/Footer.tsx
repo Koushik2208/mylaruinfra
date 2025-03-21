@@ -1,108 +1,130 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-200 py-12">
-      <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* About Section */}
-        <div>
-          <h3 className="text-xl font-semibold text-white">
-            About Mylaru Infra
-          </h3>
-          <p className="mt-3 text-gray-300 leading-relaxed">
-            Mylaru Infra is a trusted name in construction and design, offering
-            innovative solutions in residential, commercial, and industrial
-            projects.
-          </p>
-        </div>
+    <footer className="bg-background border-t">
+      <div className="container mx-auto px-6 md:px-16 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* About Section */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-foreground">
+              About Mylaru Infra
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Mylaru Infra is a trusted name in construction and design,
+              offering innovative solutions in residential, commercial, and
+              industrial projects.
+            </p>
+          </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-xl font-semibold text-white">Quick Links</h3>
-          <ul className="mt-3 space-y-2">
-            {[
-              { name: "About Us", link: "/about" },
-              { name: "Services", link: "/services" },
-              { name: "Projects", link: "/projects" },
-              { name: "Contact Us", link: "/contact" },
-            ].map((item, index) => (
-              <li key={index}>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-foreground">Quick Links</h3>
+            <ul className="space-y-3">
+              {[
+                { name: "About Us", link: "/about" },
+                { name: "Services", link: "/services" },
+                // { name: "Projects", link: "/projects" },
+                // { name: "Blogs", link: "/blogs" },
+                { name: "Contact Us", link: "/contact" },
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.link}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-foreground">Contact Us</h3>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-1" />
+                <p className="text-muted-foreground">
+                  <span className="font-medium text-foreground">Address:</span>{" "}
+                  O/no-D1, Sai Gold Plaza
+                  <span className="block text-sm mt-1">
+                    (Bharath Function Hall Area), Proddatur, AP - 516360, India
+                  </span>
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-primary" />
                 <a
-                  href={item.link}
-                  className="text-gray-300 hover:text-white transition duration-300"
+                  href="tel:+911234567890"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
-                  {item.name}
+                  +91 72072 09227
                 </a>
-              </li>
-            ))}
-          </ul>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-primary" />
+                <a
+                  href="mailto:info@mylaruinfra.com"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                >
+                  mylaruinfra@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Contact Information */}
-        <div>
-          <h3 className="text-xl font-semibold text-white">Contact Us</h3>
-          <p className="mt-3">
-            <strong className="text-white">Address:</strong> O/no-D1, Sai Gold
-            Plaza
-            <span className="text-sm">(Bharath Function Hall Area)</span>,
-            Proddatur, AP - 516360, India
-          </p>
-          <p>
-            <strong className="text-white">Phone:</strong>{" "}
-            <a
-              href="tel:+911234567890"
-              className="text-gray-300 hover:text-white transition duration-300"
-            >
-              +91 72072 09227
-            </a>
-          </p>
-          <p>
-            <strong className="text-white">Email:</strong>{" "}
-            <a
-              href="mailto:info@mylaruinfra.com"
-              className="text-gray-300 hover:text-white transition duration-300"
-            >
-              mylaruinfra@gmail.com
-            </a>
-          </p>
+        {/* Social Media Links */}
+        <div className="mt-16 pt-8 border-t">
+          <div className="flex flex-col items-center gap-6">
+            <h3 className="text-xl font-semibold text-foreground">Follow Us</h3>
+            <div className="flex gap-6">
+              <a
+                href="https://www.facebook.com/mylaruinfra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all duration-200"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/mylaruinfra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all duration-200"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/mylaruinfra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all duration-200"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Social Media Links */}
-      <div className="mt-10 text-center">
-        <h3 className="text-xl font-semibold text-white">Follow Us</h3>
-        <div className="flex justify-center gap-6 mt-4">
-          <a
-            href="https://www.facebook.com/mylaruinfra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition duration-300"
-          >
-            <Facebook size={24} />
-          </a>
-          <a
-            href="https://www.instagram.com/mylaruinfra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition duration-300"
-          >
-            <Instagram size={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/mylaruinfra"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition duration-300"
-          >
-            <Linkedin size={24} />
-          </a>
+        {/* Copyright */}
+        <div className="mt-8 text-center text-muted-foreground text-sm">
+          © {new Date().getFullYear()} Mylaru Infra. All rights reserved.
         </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="mt-8 text-center text-gray-400 text-sm">
-        © {new Date().getFullYear()} Mylaru Infra. All rights reserved.
       </div>
     </footer>
   );

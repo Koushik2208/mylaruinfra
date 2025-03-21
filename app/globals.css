@@ -4,55 +4,51 @@
 
 @layer base {
   :root {
-    --background: 220 20% 98%; /* Very light gray */
-    --foreground: 220 30% 15%;
+    --background: 210 20% 98%; /* Light gray-blue background */
+    --foreground: 210 20% 15%;
 
-    --primary: 210 80% 40%; /* A classic, strong blue */
-    --primary-light: 210 80% 50%;
-    --primary-dark: 210 80% 30%;
+    --primary: 210 100% 35%; /* #006abc - primary */
+    --primary-light: 210 100% 45%;
+    --primary-dark: 210 100% 25%;
     --primary-foreground: 0 0% 100%;
 
-    /* Earthy, warm secondary color */
-    --secondary: 30 50% 30%; /* Deep brown */
-    --secondary-light: 30 50% 40%;
-    --secondary-dark: 30 50% 20%;
+    --secondary: 210 10% 56%; /* #708090 - secondary (Slate Gray) */
+    --secondary-light: 210 10% 66%;
+    --secondary-dark: 210 10% 46%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 94%;
-    --muted-foreground: 215 20% 45%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 20% 45%;
 
-    /* Vibrant accent for highlights */
-    --accent: 0% 0% 50%; /* Golden orange */
-    --accent-foreground: 0 0% 50%;
+    --accent: 210 100% 35%; /* Primary color as accent */
+    --accent-foreground: 0 0% 100%;
 
-    --border: 214 30% 88%;
-    --ring: 210 80% 40%;
+    --border: 210 20% 88%;
+    --ring: 210 100% 35%;
   }
 
   .dark {
-    --background: 220 30% 10%;
-    --foreground: 0 0% 100%;
+    --background: 210 20% 8%; /* Dark gray-blue background */
+    --foreground: 210 20% 98%;
 
-    --primary: 210 80% 50%;
-    --primary-light: 210 80% 60%;
-    --primary-dark: 210 80% 40%;
+    --primary: 210 100% 40%; /* Brighter #006abc */
+    --primary-light: 210 100% 50%;
+    --primary-dark: 210 100% 30%;
     --primary-foreground: 0 0% 100%;
 
-    /* Dark mode secondary */
-    --secondary: 30 50% 35%;
-    --secondary-light: 30 50% 45%;
-    --secondary-dark: 30 50% 25%;
+    --secondary: 210 10% 50%; /* Slightly brighter #708090 */
+    --secondary-light: 210 10% 60%;
+    --secondary-dark: 210 10% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 25%;
+    --muted: 210 20% 20%;
     --muted-foreground: 210 15% 70%;
 
-    /* Dark mode accent */
-    --accent: 45 90% 55%;
+    --accent: 210 100% 40%; /* Brighter Primary color as accent */
     --accent-foreground: 0 0% 100%;
 
-    --border: 220 20% 25%;
-    --ring: 210 80% 50%;
+    --border: 210 20% 20%;
+    --ring: 210 100% 40%;
   }
 }
 
@@ -75,7 +71,7 @@
   }
 
   .section-padding {
-    @apply px-5 xs:px-10 md:px-16 bg-gradient-to-br from-gray-100 to-gray-200; /* Subtle background gradient */
+    @apply px-5 xs:px-10 md:px-16 bg-gradient-to-br from-background via-background to-background/80;
   }
 }
 
@@ -112,11 +108,11 @@
     }
 
     a {
-      @apply text-primary dark:text-primary-light font-semibold transition duration-200;
+      @apply text-primary dark:text-primary-light font-semibold transition duration-200 hover:text-primary-dark dark:hover:text-primary;
     }
 
     button {
-      @apply text-primary-foreground bg-primary font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300;
+      @apply text-primary-foreground bg-primary font-semibold py-1.5 px-3 rounded-md hover:bg-primary-light transition duration-300 shadow-sm hover:shadow-md;
     }
 
     blockquote {

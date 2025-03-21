@@ -1,99 +1,174 @@
 import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Award, Users, Target, Clock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-const About = () => {
+const stats = [
+  {
+    icon: Award,
+    title: "Years of Experience",
+    value: "4+",
+  },
+  {
+    icon: Users,
+    title: "Happy Clients",
+    value: "30+",
+  },
+  {
+    icon: Target,
+    title: "Projects Completed",
+    value: "30+",
+  },
+  {
+    icon: Clock,
+    title: "On-Time Delivery",
+    value: "95%",
+  },
+];
+
+const AboutPage = () => {
   return (
-    <section className="section-padding py-12">
-      <div className="max-w-5xl mx-auto space-y-10">
-        {/* Who We Are */}
-        <div className="text-center">
-          <h2 className="text-primary">Who We Are</h2>
-          <p className="mt-4">
-            Welcome to <strong>Mylaru Infra</strong>, where we bring your
-            visions to life with quality craftsmanship, innovative solutions,
-            and expert design services. As a dynamic and growing construction
-            company, we go beyond just building—we help shape ideas, refine
-            concepts, and transform them into reality.
-          </p>
-          <p className="mt-4">
-            Our skilled professionals, including architects, engineers, and
-            designers, work with precision and creativity to deliver
-            well-planned, aesthetically appealing, and structurally sound
-            projects. Whether it&apos;s residential or commercial spaces, we
-            provide end-to-end solutions—from design consultation and planning
-            to execution and completion. At <strong>Mylaru Infra</strong>, we
-            don&apos;t just construct buildings—we design, innovate, and create
-            spaces that inspire.
+    <div className="min-h-screen pt-24">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070"
+            alt="About Mylaru Infra"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/40" />
+        </div>
+        <div className="container mx-auto px-6 md:px-16 relative z-10 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            About Us
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Building dreams into reality with expertise, innovation, and
+            dedication.
           </p>
         </div>
+      </section>
 
-        {/* Our Philosophy */}
-        <div className="text-center">
-          <h2 className="text-primary">Our Philosophy</h2>
-          <p className="mt-4">
-            Our philosophy centers on the belief that a home is more than just a
-            structure— it&apos;s a sanctuary that embodies comfort, beauty, and
-            functionality. We are dedicated to creating spaces that exceed
-            expectations through **innovative and effective design**. With a
-            commitment to excellence, we use only the highest quality materials
-            and craftsmanship to foster environments where people can thrive.
-          </p>
-          <p className="mt-4">
-            We strive to **transform architectural dreams into reality**, one
-            meticulously designed home at a time.
-          </p>
+      {/* Stats Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 rounded-xl bg-card hover:shadow-lg transition-all duration-300"
+              >
+                <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-3xl font-bold text-foreground mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-muted-foreground">{stat.title}</div>
+              </div>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Why Choose Us */}
-        <div className="text-center">
-          <h2 className="text-primary">Why Choose Us?</h2>
-          <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>Quality Assurance</strong> – We use the finest materials
-                and latest technology.
-              </span>
-            </li>
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>Experienced Team</strong> – Engineers, architects, and
-                workers with years of expertise.
-              </span>
-            </li>
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>Customer-Centric Approach</strong> – Your vision is our
-                priority.
-              </span>
-            </li>
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>Timely Execution</strong> – We ensure projects are
-                completed within the committed timeline.
-              </span>
-            </li>
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>Innovative Design</strong> – We not only build but
-                provide creative design solutions.
-              </span>
-            </li>
-            <li className="flex items-start space-x-3 bg-white p-4 shadow-md rounded-lg hover:scale-105 transition-transform duration-300">
-              <span className="text-secondary font-semibold">✔</span>
-              <span>
-                <strong>End-to-End Solutions</strong> – From planning and
-                designing to execution and completion.
-              </span>
-            </li>
-          </ul>
+      {/* Story Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-xl overflow-hidden">
+              <Image
+                src="/images/about-story.jpg"
+                alt="Our Story"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                Our Story
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Mylaru Infra has grown from a small construction company to a
+                leading name in the industry. Our journey is marked by
+                continuous innovation, unwavering commitment to quality, and a
+                passion for excellence.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We believe in building not just structures, but lasting
+                relationships with our clients. Our team of experienced
+                professionals brings together expertise from various fields to
+                deliver exceptional results.
+              </p>
+              <Button className="group">
+                Learn More About Our Journey
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+            Our Core Values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-6 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                Quality
+              </h3>
+              <p className="text-muted-foreground">
+                We maintain the highest standards of quality in every project,
+                ensuring durability and excellence.
+              </p>
+            </Card>
+            <Card className="p-6 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                Innovation
+              </h3>
+              <p className="text-muted-foreground">
+                We embrace new technologies and methods to deliver cutting-edge
+                solutions.
+              </p>
+            </Card>
+            <Card className="p-6 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-4">
+                Integrity
+              </h3>
+              <p className="text-muted-foreground">
+                We operate with transparency and honesty, building trust with
+                our clients and partners.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-6 md:px-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Ready to Work Together?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss how we can bring your vision to life with our
+            expertise and dedication.
+          </p>
+          <Button size="lg" className="group" asChild>
+            <Link href="/contact" className="hover:text-white ">
+              Get in Touch
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default About;
+export default AboutPage;

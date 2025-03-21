@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# **Code Implementation Guidelines** (Next.js 15, Modern UI/UX & Theming)
+
+### **1. Code Structure & Readability**
+- Use **early returns** for clarity.
+- Keep **components small & reusable**.
+- Use **descriptive naming** (e.g., `handleFormSubmit`).
+- Avoid **unnecessary re-renders** (`useMemo`, `useCallback`).
+
+### **2. Theming & UI Consistency**
+- Use **TailwindCSS** as the primary styling method.
+- Utilize **shadcn/ui** for modern UI components.
+- Define a **consistent theme** via `tailwind.config.js`.
+- Implement **dark mode** using `next-themes`.
+
+### **3. Responsive & Adaptive Design**
+- Follow **mobile-first design** (`sm:`, `md:`, `lg:` classes).
+- Use **fluid typography & spacing** (`clamp()`, `rem`).
+- Ensure **touch-friendly interactions** (tap targets, hover states).
+
+### **4. Accessibility & SEO**
+- Use **semantic HTML** (`<header>`, `<section>`).
+- Add **ARIA attributes** for screen readers.
+- Ensure **keyboard navigation support** (`tabindex`, `focus-visible`).
+- Optimize SEO with **Next.js metadata API** (`og:image`, `og:url`).
+
+### **5. Animations & Interactivity**
+- Use **Framer Motion** for smooth animations.
+- Keep animations **subtle & performant**.
+- Utilize **Radix UI components** for better UX.
+
+### **6. Performance Optimization**
+- Optimize **images** using Next.js `<Image>` (`priority`, `lazy`).
+- Implement **ISR/SSG** for faster load times.
+- Minimize **client-side JavaScript** with dynamic imports.
+- Enable **gzip & Brotli compression**.
+
+### **7. Code Organization**
+- Follow **Next.js 15’s App Router conventions** (`app/`, `components/`).
+- Store **global theme settings** in `tailwind.config.js`.
+- Use **environment variables** (`.env.local`) for sensitive data.
+
+

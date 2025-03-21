@@ -1,87 +1,225 @@
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+"use client";
 
-export default function Home() {
-  const services = [
-    { name: "Planning & Design", image: "/images/planning.png" },
-    { name: "Residential Construction", image: "/images/residential.png" },
-    { name: "Commercial Construction", image: "/images/commercial.png" },
-    { name: "Infrastructure Development", image: "/images/infrastructure.png" },
-    { name: "Builders & Project Management", image: "/images/builders.png" },
-  ];
+import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Building2,
+  Home,
+  Factory,
+  Award,
+  Users,
+  Target,
+  Clock,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+const stats = [
+  {
+    icon: Award,
+    title: "Years of Experience",
+    value: "4+",
+  },
+  {
+    icon: Users,
+    title: "Happy Clients",
+    value: "30+",
+  },
+  {
+    icon: Target,
+    title: "Projects Completed",
+    value: "30+",
+  },
+  {
+    icon: Clock,
+    title: "On-Time Delivery",
+    value: "95%",
+  },
+];
+
+const services = [
+  {
+    title: "Residential Construction",
+    description:
+      "Custom homes and residential projects built with quality materials and expert craftsmanship.",
+    icon: Home,
+    image: "/images/residential.png",
+  },
+  {
+    title: "Commercial Projects",
+    description:
+      "Modern office spaces, retail outlets, and commercial buildings designed for success.",
+    icon: Building2,
+    image: "/images/commercial.png",
+  },
+  {
+    title: "Infrastructure Development",
+    description:
+      "Sustainable infrastructure projects, including roads, bridges, and water supply systems.",
+    icon: Factory,
+    image: "/images/infrastructure.png",
+  },
+];
+
+const HomePage = () => {
+  const scrollToAbout = () => {
+    document
+      .getElementById("about-section")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className="flex flex-col gap-14 pb-20 bg-gradient-to-br from-gray-100 to-gray-200">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-cover bg-no-repeat bg-center bg-image">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative min-h-screen flex items-center justify-center text-center px-6 md:px-16">
-          <div className="max-w-5xl">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-snug">
-              Building Dreams, Crafting Legacies.
-            </h1>
-            <div className="mt-4 text-white text-lg md:text-xl bg-white/20 backdrop-blur-sm px-4 py-2 rounded-md inline-block">
-              Creating spaces where innovation meets craftsmanship,
-              <br className="hidden md:inline" /> and every structure tells a
-              story.
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero-bg.jpg"
+            alt="Mylaru Infra"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/40" />
+        </div>
+        <div className="container mx-auto px-6 md:px-16 relative z-10 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Building Dreams into Reality
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Comprehensive construction and design solutions for residential,
+            commercial, and industrial projects.
+          </p>
+          <Button size="lg" className="group" onClick={scrollToAbout}>
+            Get Started
+            <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 rounded-xl bg-card hover:shadow-lg transition-all duration-300"
+              >
+                <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="text-3xl font-bold text-foreground mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-muted-foreground">{stat.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about-section" className="py-20 bg-muted">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070"
+                alt="About Us"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                About Us
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Founded in 2014, Mylaru Infra has grown from a small
+                construction company to a leading name in the industry. Our
+                journey is marked by continuous innovation, unwavering
+                commitment to quality, and a passion for excellence.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                We believe in building not just structures, but lasting
+                relationships with our clients. Our team of experienced
+                professionals brings together expertise from various fields to
+                deliver exceptional results.
+              </p>
+              <Button className="group">
+                Learn More About Our Journey
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section className="section-padding px-6 md:px-16">
-        <h1 className="text-3xl font-bold text-center mb-6">We are...</h1>
-        <Card className="intersect-once intersect:motion-preset-slide-up motion-delay-150 p-6 bg-primary-foreground shadow-lg">
-          <CardContent>
-            <p className="text-lg text-gray-700 leading-relaxed text-justify">
-              Welcome to <span className="font-bold">Mylaru Infra</span>, where
-              we bring your visions to life with quality craftsmanship,
-              innovative solutions, and expert design services. As a dynamic and
-              growing construction company, we go beyond just building—we help
-              shape ideas, refine concepts, and transform them into reality. Our
-              team of skilled professionals, including architects, engineers,
-              and designers, works with precision and creativity to deliver
-              well-planned, aesthetically appealing, and structurally sound
-              projects. Whether it&apos;s residential or commercial spaces, we
-              provide end-to-end solutions, from design consultation and
-              planning to execution and completion.
-            </p>
-          </CardContent>
-        </Card>
+      {/* Services Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+            Our Services
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="group overflow-hidden hover:shadow-lg transition-all duration-300"
+              >
+                <div className="relative h-64">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent transition-transform duration-500 group-hover:scale-110" />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <service.icon className="w-6 h-6 text-primary" />
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-muted-foreground mb-4">
+                    {service.description}
+                  </p>
+                  <Button className="group/btn" asChild>
+                    <Link href="/services" className="hover:text-white">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Our Services Section */}
-      <section className="section-padding px-6 md:px-16">
-        <h1 className="text-3xl font-bold text-center mb-8">Our Services</h1>
-
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {services.map((item, index) => (
-            <li
-              key={index}
-              className="relative overflow-hidden bg-white cursor-pointer shadow-lg rounded-xl text-center transition-transform transform-gpu 
-      hover:scale-105 hover:shadow-xl duration-300 ease-in-out"
-            >
-              <div className="relative w-full h-48">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={500}
-                  height={300}
-                  objectFit="cover"
-                  className="transition-transform duration-500 ease-in-out hover:scale-110"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-500 hover:opacity-100"></div>
-              </div>
-              {/* Service Name (Always Visible, but Enhances on Hover) */}
-              <p className="absolute bottom-[50%] top-[40%] left-1/2 transform -translate-x-1/2 text-white text-xl font-semibold">
-                {item.name}
-              </p>
-            </li>
-          ))}
-        </ul>
+      {/* CTA Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-6 md:px-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Ready to Start Your Project?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Let&apos;s discuss how we can bring your vision to life with our
+            expertise and dedication.
+          </p>
+          <Button size="lg" className="group" asChild>
+            <Link href="/contact" className="hover:text-white ">
+              Get in Touch
+              <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </div>
       </section>
     </div>
   );
-}
+};
+
+export default HomePage;

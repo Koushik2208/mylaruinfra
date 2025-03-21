@@ -1,186 +1,191 @@
 import React from "react";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Phone,
-  Facebook,
-  Instagram,
-  Linkedin,
-  MapPin,
-  Clock,
-} from "lucide-react";
+import { ArrowRight, Mail, Phone, MapPin, Clock } from "lucide-react";
+import Image from "next/image";
 
-const Contact = () => {
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Address",
+    content:
+      "O/no-D1, Sai Gold Plaza (Bharath Function Hall Area), Proddatur, AP - 516360, India",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    content: "+91 72072 09227",
+    link: "tel:+917207209227",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    content: "mylaruinfra@gmail.com",
+    link: "mailto:mylaruinfra@gmail.com",
+  },
+  {
+    icon: Clock,
+    title: "Working Hours",
+    content: "Monday - Saturday: 9:00 AM - 6:00 PM",
+  },
+];
+
+const ContactPage = () => {
   return (
-    <section className="section-padding py-12">
-      <div className="container mx-auto px-6 md:px-12">
-        <h2 className="text-3xl font-bold text-center text-gray-900">
-          Contact Us
-        </h2>
-        <p className="text-gray-600 text-center mt-2">
-          We would love to hear from you! Reach out to us for inquiries,
-          collaborations, or project discussions.
-        </p>
+    <div className="min-h-screen pt-24">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070"
+            alt="Contact Us"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/40" />
+        </div>
+        <div className="container mx-auto px-6 md:px-16 relative z-10 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Contact Us
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Get in touch with us to discuss your project needs and receive
+            expert guidance.
+          </p>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
-          {/* Left Side - Contact Info */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-              <MapPin size={20} className="text-secondary" /> Our Office
-            </h3>
-            <p className="mt-2 text-gray-700">
-              <strong>Mylaru Infra</strong>
-            </p>
-            <p className="text-gray-600">
-              O/no-D1, Sai Gold Plaza
-              <span className="text-sm">(Bharath Function Hall Area)</span>,
-              Proddatur, AP - 516360, India
-            </p>
-
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 flex items-center gap-2">
-              <Phone size={20} className="text-secondary" /> Contact Details
-            </h3>
-            <ul className="mt-2 space-y-2 text-gray-700">
-              <li>
-                <strong>Phone:</strong>{" "}
-                <a
-                  href="tel:+911234567890"
-                  className="text-secondary hover:underline"
-                >
-                  +91 72072 09227
-                </a>
-              </li>
-              <li>
-                <strong>Email:</strong>{" "}
-                <a
-                  href="mailto:mylaruinfra@gmail.com"
-                  className="text-secondary hover:underline"
-                >
-                  mylaruinfra@gmail.com
-                </a>
-              </li>
-              <li>
-                <strong>Website:</strong>{" "}
-                <a
-                  href="https://www.mylaruinfra.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-secondary hover:underline"
-                >
-                  www.mylaruinfra.in
-                </a>
-              </li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-900 mt-6 flex items-center gap-2">
-              <Clock size={20} className="text-secondary" /> Business Hours
-            </h3>
-            <ul className="mt-2 text-gray-700">
-              <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
-              <li>Saturday: 10:00 AM - 4:00 PM</li>
-              <li>Sunday: Closed</li>
-            </ul>
-
-            {/* Social Media Links */}
-            <h3 className="text-xl font-semibold text-gray-900 mt-6">
-              Follow Us
-            </h3>
-            <div className="flex gap-4 mt-3">
-              <a
-                href="https://www.facebook.com/mylaruinfra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-secondary transition duration-300"
+      {/* Contact Information */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 7xl:grid-cols-4 gap-8">
+            {contactInfo.map((info, index) => (
+              <Card
+                key={index}
+                className="p-6 hover:shadow-lg transition-all duration-300"
               >
-                <Facebook size={24} />
-              </a>
-              <a
-                href="https://www.instagram.com/mylaruinfra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-secondary transition duration-300"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/mylaruinfra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-secondary transition duration-300"
-              >
-                <Linkedin size={24} />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Side - Contact Form */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900">
-              Send Us a Message
-            </h3>
-            <form
-              action="your-form-handler-url"
-              method="POST"
-              className="mt-4 space-y-4"
-            >
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 font-medium"
-                >
-                  Name:
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 font-medium"
-                >
-                  Email:
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary outline-none"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-gray-700 font-medium"
-                >
-                  Message:
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full mt-1 p-3 border border-gray-300 rounded-lg h-32 focus:ring-2 focus:ring-secondary focus:border-secondary outline-none"
-                ></textarea>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-secondary text-white hover:bg-secondary-dark transition duration-300"
-              >
-                Submit
-              </Button>
-            </form>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <info.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      {info.title}
+                    </h3>
+                    {info.link ? (
+                      <a
+                        href={info.link}
+                        className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                      >
+                        {info.content}
+                      </a>
+                    ) : (
+                      <p className="text-muted-foreground">{info.content}</p>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Contact Form */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+              Send Us a Message
+            </h2>
+            <Card className="p-8">
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      placeholder="Your email"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="subject"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Message subject"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={6}
+                    className="w-full px-4 py-2 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    placeholder="Your message"
+                  />
+                </div>
+                <Button className="w-full group">
+                  Send Message
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </form>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 md:px-16">
+          <div className="aspect-video rounded-xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.516337548412!2d78.54746687324857!3d14.739915373654382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb47932b09329a9%3A0x99af3143ca22123e!2sMylaru%20Infra!5e0!3m2!1sen!2sin!4v1742551950813!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default Contact;
+export default ContactPage;
