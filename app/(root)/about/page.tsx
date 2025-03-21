@@ -1,34 +1,70 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, Target, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedStat from "@/components/AnimatedStat";
 
 const stats = [
   {
     icon: Award,
     title: "Years of Experience",
-    value: "4+",
+    value: 4,
+    operator: "+",
   },
   {
     icon: Users,
     title: "Happy Clients",
-    value: "30+",
+    value: 30,
+    operator: "+",
   },
   {
     icon: Target,
     title: "Projects Completed",
-    value: "30+",
+    value: 30,
+    operator: "+",
   },
   {
     icon: Clock,
     title: "On-Time Delivery",
-    value: "95%",
+    value: 95,
+    operator: "%",
   },
 ];
 
 const AboutPage = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
+          setHasAnimated(true);
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const sectionElement = sectionRef.current;
+
+    if (sectionElement) {
+      observer.observe(sectionElement);
+    }
+
+    return () => {
+      if (sectionElement) {
+        observer.unobserve(sectionElement);
+      }
+    };
+  }, [hasAnimated]);
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section */}
@@ -55,20 +91,14 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
+      <section className="py-20" ref={sectionRef}>
         <div className="container mx-auto px-6 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div
+              <AnimatedStat
                 key={index}
-                className="text-center p-6 rounded-xl bg-card hover:shadow-lg transition-all duration-300"
-              >
-                <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <div className="text-3xl font-bold text-foreground mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-muted-foreground">{stat.title}</div>
-              </div>
+                stat={isVisible ? stat : { ...stat, value: 0 }}
+              />
             ))}
           </div>
         </div>
