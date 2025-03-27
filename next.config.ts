@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ["pino", "pino-pretty"],
   /* config options here */
   images: {
     remotePatterns: [
@@ -9,8 +10,8 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co",
       },
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
   },
