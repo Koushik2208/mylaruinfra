@@ -1,8 +1,7 @@
 import React from "react";
 
-const BlogDetail = async ({ params }: { params: { id: string } }) => {
-  const { id } = await params;
-  return <div>Blog {id} detail</div>;
+const page = () => {
+  return <div>page</div>;
 };
 
-export default BlogDetail;
+export default page;
