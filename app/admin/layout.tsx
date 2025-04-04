@@ -8,10 +8,10 @@ const layout = async ({ children }: { children: ReactNode }) => {
 
   // if (!session?.user?.id) redirect("/sign-in");
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Sidebar />
       <div className="lg:pl-64">
-        <main className="p-4 lg:p-6 bg-gray-50">{children}</main>
+        <main className="p-4 lg:p-6 bg-muted/20">{children}</main>
       </div>
     </div>
   );
