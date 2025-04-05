@@ -32,7 +32,8 @@ export const blogCategorySchema = z.object({
     .min(3, { message: "Slug must be at least 3 characters" })
     .regex(/^[a-z0-9-]+$/, {
       message: "Slug must only contain lowercase letters, numbers, and hyphens",
-    }).default(""),
+    })
+    .default(""),
 });
 
 export const PaginatedSearchParamsSchema = z.object({
@@ -41,4 +42,33 @@ export const PaginatedSearchParamsSchema = z.object({
   query: z.string().optional(),
   filter: z.string().optional(),
   sort: z.string().optional(),
+});
+
+export const SignInSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+export const AccountSchema = z.object({
+  name: z.string().min(1, { message: "Name is required." }),
+  image: z.string().url({ message: "Please provide a valid URL." }).optional(),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters long." })
+    .max(100, { message: "Password cannot exceed 100 characters." })
+    .regex(/[A-Z]/, {
+      message: "Password must contain at least one uppercase letter.",
+    })
+    .regex(/[a-z]/, {
+      message: "Password must contain at least one lowercase letter.",
+    })
+    .regex(/[0-9]/, { message: "Password must contain at least one number." })
+    .regex(/[^a-zA-Z0-9]/, {
+      message: "Password must contain at least one special character.",
+    })
+    .optional(),
+  provider: z.string().min(1, { message: "Provider is required." }),
+  providerAccountId: z
+    .string()
+    .min(1, { message: "Provider Account ID is required." }),
 });

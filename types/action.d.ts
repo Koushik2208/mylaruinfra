@@ -17,3 +17,7 @@ interface BlogCategory {
   description: string;
 }
 
+interface AuthCredentials {
+  email: string;
+  password: string;
+}

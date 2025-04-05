@@ -1,6 +1,6 @@
 "use client";
 
-import DataForm from "@/components/DataForm";
+import DataForm from "@/components/forms/DataForm";
 import { blogCategorySchema } from "@/lib/validations";
 import React from "react";
 
@@ -18,7 +18,6 @@ const page = () => {
         name: "text",
         description: "textarea",
       }}
-      
     />
   );
 };

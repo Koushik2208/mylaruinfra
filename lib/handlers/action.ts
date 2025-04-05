@@ -23,9 +23,11 @@ async function action<T>({
   schema,
   authorize = false,
 }: ActionOptions<T>) {
+  let validatedParams: T | undefined = params;
+
   if (schema && params) {
     try {
-      schema.parse(params);
+      validatedParams = schema.parse(params);
     } catch (error) {
       if (error instanceof ZodError) {
         return new ValidationError(
@@ -49,7 +51,7 @@ async function action<T>({
 
   await dbConnect();
 
-  return { params, session };
+  return { params: validatedParams, session };
 }
 
 export default action;

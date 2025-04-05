@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
-// import { Button } from "./ui/button";
-// import { signOut } from "@/auth";
+import { Button } from "./ui/button";
+import { signOut } from "@/auth";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
-// import { LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 
 const Sidebar = () => {
   return (
@@ -22,23 +22,23 @@ const Sidebar = () => {
 
         <NavLinks />
 
-        {/* <div className="p-4 mt-auto border-t border-border/20">
+        <div className="p-4 mt-auto border-t border-border/20">
           <form
             action={async () => {
               "use server";
               await signOut();
             }}
           >
-            <Button 
+            <Button
               variant="outline"
-              className="w-full group text-primary-foreground/80 hover:text-primary-foreground border-primary-foreground/20" 
+              className="w-full group text-primary-foreground/80 hover:text-primary-foreground border-primary-foreground/20"
               type="submit"
             >
               <LogOut className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" />
               Sign Out
             </Button>
           </form>
-        </div> */}
+        </div>
       </div>
     </MobileMenu>
   );

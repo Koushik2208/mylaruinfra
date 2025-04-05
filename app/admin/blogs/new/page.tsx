@@ -1,6 +1,6 @@
 "use client";
 
-import DataForm from "@/components/DataForm";
+import DataForm from "@/components/forms/DataForm";
 import { blogSchema } from "@/lib/validations";
 import React from "react";
 
