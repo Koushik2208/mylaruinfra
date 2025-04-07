@@ -164,10 +164,10 @@ const HomePage = () => {
                 About Us
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Founded in 2014, Mylaru Infra has grown from a small
-                construction company to a leading name in the industry. Our
-                journey is marked by continuous innovation, unwavering
-                commitment to quality, and a passion for excellence.
+                Mylaru Infra has grown from a small construction company to a
+                leading name in the industry. Our journey is marked by
+                continuous innovation, unwavering commitment to quality, and a
+                passion for excellence.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 We believe in building not just structures, but lasting
