@@ -9,9 +9,6 @@ export const blogSchema = z.object({
   author: z.string().min(1, { message: "Author is required" }),
   category: z
     .string()
-    .refine((val) => Types.ObjectId.isValid(val) || val === undefined, {
-      message: "Invalid Category ObjectId",
-    })
     .optional()
     .nullable(),
   imageUrl: z.string().url().optional().nullable(),
