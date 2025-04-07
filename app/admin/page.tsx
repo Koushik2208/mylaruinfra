@@ -39,9 +39,14 @@ const page = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-          <p className="text-muted-foreground mt-1">Welcome back! Here's what's happening today.</p>
+          <p className="text-muted-foreground mt-1">
+            Welcome back! Here&apos;s what&apos;s happening today.
+          </p>
         </div>
-        <Button variant="default" className="group self-start sm:self-auto bg-primary hover:bg-primary/90 text-primary-foreground">
+        <Button
+          variant="default"
+          className="group self-start sm:self-auto bg-primary hover:bg-primary/90 text-primary-foreground"
+        >
           <Plus className="w-4 h-4 mr-2" />
           Create New Post
           <FileText className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -66,7 +71,9 @@ const page = () => {
                   {stat.value}
                 </div>
               )}
-              <p className="text-xs text-muted-foreground mt-1">{stat.description}</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                {stat.description}
+              </p>
               <Badge variant="secondary" className="mt-2">
                 {stat.trend}
               </Badge>
@@ -115,15 +122,24 @@ const page = () => {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <Button variant="outline" className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground">
+            <Button
+              variant="outline"
+              className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground"
+            >
               <FileText className="mr-2 h-4 w-4" />
               Create New Post
             </Button>
-            <Button variant="outline" className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground">
+            <Button
+              variant="outline"
+              className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground"
+            >
               <Settings className="mr-2 h-4 w-4" />
               Site Settings
             </Button>
-            <Button variant="outline" className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground">
+            <Button
+              variant="outline"
+              className="w-full justify-start text-foreground hover:bg-primary hover:text-primary-foreground"
+            >
               <BarChart2 className="mr-2 h-4 w-4" />
               View Analytics
             </Button>

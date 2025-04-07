@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import { z } from "zod";
 
 export const blogSchema = z.object({
@@ -7,10 +6,7 @@ export const blogSchema = z.object({
     .string()
     .min(10, { message: "Content must be at least 10 characters" }),
   author: z.string().min(1, { message: "Author is required" }),
-  category: z
-    .string()
-    .optional()
-    .nullable(),
+  category: z.string().optional().nullable(),
   imageUrl: z.string().url().optional().nullable(),
   isPublished: z.boolean().default(false),
   slug: z
