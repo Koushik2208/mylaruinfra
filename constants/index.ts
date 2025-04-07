@@ -1,5 +1,10 @@
 export const sidebarLinks = [
   {
+    img: "/icons/home.svg",
+    route: "/admin",
+    text: "Home",
+  },
+  {
     img: "/icons/blog.svg",
     route: "/admin/blogs",
     text: "Blogs",

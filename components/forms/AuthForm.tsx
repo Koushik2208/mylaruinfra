@@ -28,14 +28,12 @@ import ROUTES from "@/constants/routes";
 interface AuthFormProps<T extends FieldValues> {
   schema: ZodType<T>;
   defaultValues: T;
-  // formType: "SIGN_IN";
   onSubmit: (data: T) => Promise<ActionResponse>;
 }
 
 const AuthForm = <T extends FieldValues>({
   schema,
   defaultValues,
-  // formType,
   onSubmit,
 }: AuthFormProps<T>) => {
   const router = useRouter();
@@ -58,19 +56,15 @@ const AuthForm = <T extends FieldValues>({
 
   const buttonText = "Sign In";
   const title = "Welcome Back";
+
   return (
     <Card className="border-none shadow-none">
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold text-center">
-          {title}
-        </CardTitle>
+        <CardTitle className="text-2xl font-bold text-center">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleSubmit)}
-            className="space-y-4"
-          >
+          <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
             {Object.keys(defaultValues).map((field) => (
               <FormField
                 key={field}
@@ -82,9 +76,8 @@ const AuthForm = <T extends FieldValues>({
                       {field.name === "email"
                         ? "Email Address"
                         : field.name === "password"
-                        ? "Password"
-                        : field.name.charAt(0).toUpperCase() +
-                          field.name.slice(1)}
+                          ? "Password"
+                          : field.name.charAt(0).toUpperCase() + field.name.slice(1)}
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -108,17 +101,9 @@ const AuthForm = <T extends FieldValues>({
               {form.formState.isSubmitting ? "Signing In..." : buttonText}
             </Button>
 
-            <div className="text-center text-sm text-muted-foreground">
-              <p>
-                Don&apos;t have an account?{" "}
-                {/* You can remove this entire <p> block if you truly don't want a sign-up link */}
-                {/* <Link href={ROUTES.SIGN_UP} className="text-primary hover:underline">
-                  Sign up
-                </Link> */}
-                {/* Or, you can replace it with a different message */}
-                Contact an administrator to create an account.
-              </p>
-            </div>
+            <p className="text-center text-sm text-muted-foreground">
+              <span className="font-semibold">Don&apos;t have an account?</span> Contact an administrator to create an account.
+            </p>
           </form>
         </Form>
       </CardContent>

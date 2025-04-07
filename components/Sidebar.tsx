@@ -31,7 +31,7 @@ const Sidebar = () => {
           >
             <Button
               variant="outline"
-              className="w-full group text-primary-foreground/80 hover:text-primary-foreground border-primary-foreground/20"
+              className="w-full group text-foreground hover:bg-primary hover:text-primary-foreground border-border/20"
               type="submit"
             >
               <LogOut className="w-4 h-4 mr-2 transition-transform group-hover:translate-x-1" />
